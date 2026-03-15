@@ -1,0 +1,37 @@
+name = "floodshield-main-worker"
+main = "src/index.ts"
+compatibility_date = "2024-12-18"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+ENVIRONMENT = "development"
+
+[env.development.vars]
+ENVIRONMENT = "development"
+
+[env.production.vars]
+ENVIRONMENT = "production"
+
+# KV — flood data cache (TTL: 30 min)
+[[kv_namespaces]]
+binding = "FLOOD_CACHE"
+id = "7abce79a515b4c989bfd2279da3df546"
+preview_id = "fae1f9ae5a9d4de49896fe49b5155dad"
+
+# KV — ElevenLabs voice audio cache (TTL: 30 days)
+[[kv_namespaces]]
+binding = "VOICE_CACHE"
+id = "7edad611578a4711a7a30f7b345ecfe2"
+preview_id = "977689b788e144c8ae0918278852939b"
+
+# Cron: scan Sentinel-1 every 6 hours
+[triggers]
+crons = ["0 */6 * * *"]
+
+# R2 — pre-computed GeoJSON flood zones + pre-generated audio
+[[r2_buckets]]
+binding = "FLOOD_GEOJSON"
+bucket_name = "floodshield-geojson"
+
+[build]
+command = ""

@@ -1,0 +1,32 @@
+# FloodShield Main — Cloudflare Worker Environment (Template)
+# Copy this file to .dev.vars and fill in your actual secrets
+# DO NOT commit .dev.vars to Git
+
+# ── Supabase ───────────────────────────────────────────────
+# Get from: Supabase Dashboard → Settings → API
+# SERVICE_ROLE_KEY is highly sensitive — keep secret!
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+
+# ── Solana ─────────────────────────────────────────────────
+# RPC URL: public, rate-limited (~10 req/s)
+# PAYOUT_AUTHORITY_PRIVATE_KEY: your Solana keypair in base58 format
+#   Get from: solana address (shows pubkey)
+#   Keypair file: ~/.config/solana/id.json
+SOLANA_RPC_URL=https://api.devnet.solana.com
+PAYOUT_AUTHORITY_PRIVATE_KEY=your_base58_solana_keypair_here
+
+# Program ID will be generated after deploying Anchor program
+PROGRAM_ID=your_solana_program_id_here
+
+# ── ElevenLabs TTS ──────────────────────────────────────────
+# API_KEY: highly sensitive — keep secret!
+# VOICE_ID: public, identifies which voice to use
+# Get from: https://elevenlabs.io/api
+ELEVENLABS_API_KEY=sk_your_elevenlabs_api_key_here
+ELEVENLABS_VOICE_ID=kPNz4WRTiKDplS7jAwHu
+
+# ── Environment ─────────────────────────────────────────────
+# development: local testing, verbose logs
+# production: live deployment
+ENVIRONMENT=development

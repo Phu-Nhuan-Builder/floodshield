@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@floodshield/shared": ["../../packages/shared/src/index.ts"]
+    },
+    "types": ["vite/client", "vitest/globals"],
+    "exactOptionalPropertyTypes": false
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist", "vite.config.ts", "vitest.config.ts"]
+}

@@ -1,0 +1,1 @@
+{"version":3,"file":"useVoiceAlert.d.ts","sourceRoot":"","sources":["useVoiceAlert.ts"],"names":[],"mappings":"AAGA,OAAO,KAAK,EAAE,aAAa,EAAE,MAAM,qBAAqB,CAAC;AASzD,wBAAgB,aAAa;4BAUsB,MAAM;gCAgCpC,MAAM,YAAY,MAAM,YAAY,aAAa;;eAhDzD,OAAO;eACP,OAAO;WACX,MAAM,GAAG,IAAI;YACZ,YAAY,GAAG,aAAa,GAAG,IAAI;EAyE5C"}

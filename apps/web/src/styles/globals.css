@@ -1,0 +1,118 @@
+@import "mapbox-gl/dist/mapbox-gl.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* === Base === */
+@layer base {
+  :root {
+    --color-flood-low: 255 241 118;
+    --color-flood-medium: 255 179 0;
+    --color-flood-high: 244 67 54;
+    --color-flood-critical: 183 28 28;
+    --color-safe: 76 175 80;
+  }
+
+  html {
+    @apply text-gray-900 bg-gray-950 antialiased;
+    font-family: "Be Vietnam Pro", "Inter", system-ui, sans-serif;
+  }
+
+  body {
+    @apply min-h-screen;
+  }
+
+  /* Improve touch targets for mobile (farmers use low-end phones) */
+  button,
+  a,
+  [role="button"] {
+    @apply min-h-[44px] min-w-[44px];
+  }
+
+  /* High contrast focus for accessibility */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-blue-400;
+  }
+}
+
+/* === Components === */
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-4 py-2.5
+      font-medium text-white transition-colors hover:bg-blue-500 focus-visible:ring-2
+      focus-visible:ring-blue-400 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-red-700 px-4 py-2.5
+      font-medium text-white transition-colors hover:bg-red-600 focus-visible:ring-2
+      focus-visible:ring-red-400 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 font-medium
+      text-gray-300 transition-colors hover:bg-gray-800 hover:text-white focus-visible:ring-2
+      focus-visible:ring-gray-400;
+  }
+
+  .card {
+    @apply rounded-xl border border-gray-800 bg-gray-900 p-4;
+  }
+
+  .badge-severity {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold;
+  }
+
+  .badge-low {
+    @apply badge-severity bg-yellow-900/40 text-yellow-300;
+  }
+
+  .badge-medium {
+    @apply badge-severity bg-amber-900/40 text-amber-300;
+  }
+
+  .badge-high {
+    @apply badge-severity bg-red-900/40 text-red-300;
+  }
+
+  .badge-critical {
+    @apply badge-severity animate-pulse-slow bg-red-950 text-red-200 ring-1 ring-red-600;
+  }
+}
+
+/* === Map overrides === */
+.mapboxgl-map {
+  @apply rounded-xl;
+}
+
+.mapboxgl-popup-content {
+  @apply rounded-lg border border-gray-700 bg-gray-900 p-3 text-gray-100 shadow-xl;
+  background: #111827 !important;
+  color: #f9fafb !important;
+  border: 1px solid #374151;
+}
+
+.mapboxgl-popup-tip {
+  border-top-color: #111827 !important;
+}
+
+/* === Alert banner animation === */
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.alert-banner {
+  animation: slideDown 0.4s ease-out;
+}
+
+/* === Skeleton loading === */
+.skeleton {
+  @apply animate-pulse rounded bg-gray-800;
+}
