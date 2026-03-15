@@ -40,7 +40,10 @@ export function useMap({ containerRef, center = [105.0, 10.0], zoom = 7 }: UseMa
       zoom,
       minZoom: 5,
       maxZoom: 16,
-      // Accessibility
+      // Vietnam worldview — displays Vietnamese place names and borders
+      // (e.g., Hoàng Sa, Trường Sa, disputed boundaries per VN perspective)
+      worldview: "VN",
+      language: "vi",
       localIdeographFontFamily: "'Be Vietnam Pro', 'Noto Sans', sans-serif",
     });
 
@@ -137,9 +140,9 @@ export function useMap({ containerRef, center = [105.0, 10.0], zoom = 7 }: UseMa
         "fill-color": [
           "match",
           ["get", "severity"],
-          "low",      "#FFF176",
-          "medium",   "#FFB300",
-          "high",     "#F44336",
+          "low", "#FFF176",
+          "medium", "#FFB300",
+          "high", "#F44336",
           "critical", "#B71C1C",
           "#90CAF9",
         ],
