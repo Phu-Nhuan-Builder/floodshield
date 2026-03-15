@@ -6,6 +6,7 @@ import { useFloodZones } from "../../hooks/useFloodData";
 import { useAppStore } from "../../stores/appStore";
 import { MapStyleToggle } from "./MapStyleToggle";
 import { MapLegend } from "./MapLegend";
+import { SentinelLayerToggle } from "./SentinelLayerToggle";
 
 export function FloodMap() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -61,6 +62,7 @@ export function FloodMap() {
       {/* Map controls */}
       <div className="absolute top-4 left-4 z-10 space-y-2">
         <MapStyleToggle />
+        <SentinelLayerToggle mapRef={mapRef} />
       </div>
 
       {/* Legend */}
@@ -80,3 +82,4 @@ export function FloodMap() {
     </div>
   );
 }
+
